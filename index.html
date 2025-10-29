@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEDTE 360°</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+        <!-- Geometric Background Shapes -->
+        <div class="bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=800&fit=crop" 
+                 alt="Campus Universitario" class="hero-image">
+            <div class="hero-content">
+                <div class="institutional-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Sistema Institucional</span>
+                </div>
+                <h1 class="hero-title">SEDTE 360°</h1>
+                <p class="hero-subtitle">Plataforma oficial para la evaluación académica y mejora continua del desempeño docente</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="navigateTo('login-screen')">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                    </button>
+                    <button class="btn btn-outline" onclick="navigateTo('register-screen')">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestro Sistema de Evaluación</h2>
+                    <div class="header-underline"></div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon orange">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Evaluación Integral</h3>
+                        <p>Retroalimentación de estudiantes, colegas y autoridades académicas</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon green">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Análisis en Tiempo Real</h3>
+                        <p>Estadísticas y métricas actualizadas para seguimiento continuo</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon orange">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Confidencialidad</h3>
+                        <p>Proceso anónimo y seguro que garantiza la objetividad</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon green">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Reportes Detallados</h3>
+                        <p>Informes completos para el desarrollo profesional docente</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <div class="auth-background">
+            <div class="auth-shapes">
+                <div class="auth-shape auth-shape-1"></div>
+                <div class="auth-shape auth-shape-2"></div>
+            </div>
+        </div>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="auth-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Iniciar Sesión</h2>
+                    <p class="auth-subtitle">Sistema de Evaluación Docente 360°</p>
+                </div>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">
+                            <i class="fas fa-envelope"></i> Correo Electrónico
+                        </label>
+                        <input type="email" id="login-email" placeholder="correo@universidad.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">
+                            <i class="fas fa-lock"></i> Contraseña
+                        </label>
+                        <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <div id="login-error" class="error-message"></div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Ingresar al Sistema
+                    </button>
+                    <div class="auth-divider">o</div>
+                    <button type="button" class="btn btn-outline btn-block" onclick="navigateTo('register-screen')">
+                        <i class="fas fa-user-plus"></i> Crear Nueva Cuenta
+                    </button>
+                    <button type="button" class="btn btn-link btn-block" onclick="navigateTo('welcome-screen')">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio
+                    </button>
+                </form>
+                <div class="auth-footer">
+                    <div class="role-icons">
+                        <span class="role-icon" title="Alumno"><i class="fas fa-user-graduate"></i></span>
+                        <span class="role-icon" title="Docente"><i class="fas fa-chalkboard-teacher"></i></span>
+                        <span class="role-icon" title="Jefe Académico"><i class="fas fa-user-tie"></i></span>
+                        <span class="role-icon" title="Administrador"><i class="fas fa-user-shield"></i></span>
+                        <span class="role-icon" title="Comité"><i class="fas fa-users"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Screen -->
+    <div id="register-screen" class="screen">
+        <div class="auth-background">
+            <div class="auth-shapes">
+                <div class="auth-shape auth-shape-1"></div>
+                <div class="auth-shape auth-shape-2"></div>
+            </div>
+        </div>
+        <div class="auth-container">
+            <div class="auth-card auth-card-wide">
+                <div class="auth-header">
+                    <div class="auth-logo green">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2>Registro de Nuevo Usuario</h2>
+                    <p class="auth-subtitle">Completa el formulario para crear tu cuenta institucional</p>
+                </div>
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-name">
+                                <i class="fas fa-user"></i> Nombre Completo
+                            </label>
+                            <input type="text" id="register-name" placeholder="Nombre y apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">
+                                <i class="fas fa-envelope"></i> Correo Electrónico
+                            </label>
+                            <input type="email" id="register-email" placeholder="correo@universidad.edu" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-password">
+                                <i class="fas fa-lock"></i> Contraseña
+                            </label>
+                            <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-role">
+                                <i class="fas fa-user-tag"></i> Rol Institucional
+                            </label>
+                            <select id="register-role" required>
+                                <option value="">Seleccione su rol</option>
+                                <option value="alumno">🎓 Alumno</option>
+                                <option value="docente">📚 Docente</option>
+                                <option value="jefe">👔 Jefe Académico</option>
+                                <option value="admin">🛡️ Super Administrador</option>
+                                <option value="comite">👥 Comité</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="register-success" class="success-message"></div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-check-circle"></i> Crear Cuenta
+                    </button>
+                    <div class="auth-divider">o</div>
+                    <button type="button" class="btn btn-outline btn-block" onclick="navigateTo('login-screen')">
+                        <i class="fas fa-sign-in-alt"></i> Ya Tengo Cuenta
+                    </button>
+                    <button type="button" class="btn btn-link btn-block" onclick="navigateTo('welcome-screen')">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alumno Dashboard -->
+    <div id="dashboard-alumno" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Panel de Alumno</h2>
+                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="info-card">
+                    <h3>Evaluaciones Pendientes</h3>
+                    <p>Evalúa a tus docentes para contribuir a la mejora académica</p>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Docente</th>
+                                <th>Materia</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Juan Pérez</td>
+                                <td>Matemáticas Avanzadas</td>
+                                <td><span class="badge badge-pending">Pendiente</span></td>
+                                <td><button class="btn btn-small btn-primary">Evaluar</button></td>
+                            </tr>
+                            <tr>
+                                <td>Dra. María García</td>
+                                <td>Física Cuántica</td>
+                                <td><span class="badge badge-pending">Pendiente</span></td>
+                                <td><button class="btn btn-small btn-primary">Evaluar</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ing. Carlos López</td>
+                                <td>Programación</td>
+                                <td><span class="badge badge-completed">Completada</span></td>
+                                <td><button class="btn btn-small btn-secondary" disabled>Evaluado</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Docente Dashboard -->
+    <div id="dashboard-docente" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Panel de Docente</h2>
+                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="stats-grid">
+                    <div class="stat-card orange">
+                        <h3>4.5</h3>
+                        <p>Calificación Promedio</p>
+                    </div>
+                    <div class="stat-card green">
+                        <h3>45</h3>
+                        <p>Evaluaciones Recibidas</p>
+                    </div>
+                    <div class="stat-card orange">
+                        <h3>92%</h3>
+                        <p>Satisfacción General</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Resumen de Evaluaciones</h3>
+                    <div class="evaluation-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">Dominio de Materia:</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                            <span class="summary-value">4.5/5</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Metodología:</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                            <span class="summary-value">4.3/5</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Comunicación:</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 88%"></div></div>
+                            <span class="summary-value">4.4/5</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jefe Académico Dashboard -->
+    <div id="dashboard-jefe" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Panel de Jefe Académico</h2>
+                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="info-card">
+                    <h3>Evaluaciones del Departamento</h3>
+                    <p>Monitorea el desempeño docente de tu departamento</p>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Docente</th>
+                                <th>Evaluaciones</th>
+                                <th>Promedio</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Juan Pérez</td>
+                                <td>35/40</td>
+                                <td><span class="badge badge-completed">4.5</span></td>
+                                <td><span class="badge badge-completed">Excelente</span></td>
+                            </tr>
+                            <tr>
+                                <td>Dra. María García</td>
+                                <td>38/40</td>
+                                <td><span class="badge badge-completed">4.7</span></td>
+                                <td><span class="badge badge-completed">Excelente</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ing. Carlos López</td>
+                                <td>28/40</td>
+                                <td><span class="badge badge-pending">3.8</span></td>
+                                <td><span class="badge badge-pending">Bueno</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Generar Reporte</button>
+                    <button class="btn btn-secondary">Exportar Datos</button>
+                </div>
+                <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Super Admin Dashboard -->
+    <div id="dashboard-admin" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Panel de Super Administrador</h2>
+                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="stats-grid">
+                    <div class="stat-card orange">
+                        <h3>150</h3>
+                        <p>Docentes Total</p>
+                    </div>
+                    <div class="stat-card green">
+                        <h3>1,200</h3>
+                        <p>Evaluaciones Completadas</p>
+                    </div>
+                    <div class="stat-card orange">
+                        <h3>85%</h3>
+                        <p>Tasa de Participación</p>
+                    </div>
+                    <div class="stat-card green">
+                        <h3>4.3</h3>
+                        <p>Promedio Institucional</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>Resumen del Sistema</h3>
+                    <div class="system-overview">
+                        <div class="overview-item">
+                            <span class="overview-icon orange">👥</span>
+                            <div>
+                                <strong>Usuarios Activos</strong>
+                                <p>1,350 usuarios registrados</p>
+                            </div>
+                        </div>
+                        <div class="overview-item">
+                            <span class="overview-icon green">📊</span>
+                            <div>
+                                <strong>Evaluaciones</strong>
+                                <p>1,200 completadas / 1,500 total</p>
+                            </div>
+                        </div>
+                        <div class="overview-item">
+                            <span class="overview-icon orange">🏆</span>
+                            <div>
+                                <strong>Rendimiento</strong>
+                                <p>85% de satisfacción general</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Gestionar Usuarios</button>
+                    <button class="btn btn-primary">Configurar Sistema</button>
+                    <button class="btn btn-secondary">Reportes Globales</button>
+                </div>
+                <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comité Dashboard -->
+    <div id="dashboard-comite" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Panel de Comité</h2>
+                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+            </div>
+            <div class="dashboard-content">
+                <div class="info-card">
+                    <h3>Revisión de Reportes de Evaluación</h3>
+                    <p>Analiza y aprueba los reportes de evaluación docente</p>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Periodo</th>
+                                <th>Departamento</th>
+                                <th>Docentes</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-1</td>
+                                <td>Ingeniería</td>
+                                <td>45</td>
+                                <td><span class="badge badge-pending">Pendiente Revisión</span></td>
+                                <td><button class="btn btn-small btn-primary">Revisar</button></td>
+                            </tr>
+                            <tr>
+                                <td>2024-1</td>
+                                <td>Ciencias</td>
+                                <td>32</td>
+                                <td><span class="badge badge-completed">Aprobado</span></td>
+                                <td><button class="btn btn-small btn-secondary">Ver Reporte</button></td>
+                            </tr>
+                            <tr>
+                                <td>2023-2</td>
+                                <td>Humanidades</td>
+                                <td>28</td>
+                                <td><span class="badge badge-completed">Aprobado</span></td>
+                                <td><button class="btn btn-small btn-secondary">Ver Reporte</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Generar Actas</button>
+                    <button class="btn btn-secondary">Historial de Revisiones</button>
+                </div>
+                <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Screen -->
+    <div id="help-screen" class="screen">
+        <div class="container">
+            <div class="help-container">
+                <h2>Ayuda y Soporte</h2>
+                <div class="help-section">
+                    <h3 class="help-title">Instrucciones de Uso</h3>
+                    <div class="help-item">
+                        <h4>Para Alumnos:</h4>
+                        <ul>
+                            <li>Inicia sesión con tus credenciales institucionales</li>
+                            <li>Revisa la lista de docentes pendientes de evaluación</li>
+                            <li>Completa las evaluaciones de manera honesta y constructiva</li>
+                            <li>Tus respuestas son confidenciales y anónimas</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h4>Para Docentes:</h4>
+                        <ul>
+                            <li>Accede a tu panel para ver el resumen de evaluaciones</li>
+                            <li>Revisa tus estadísticas y áreas de mejora</li>
+                            <li>Las evaluaciones son un recurso para el desarrollo profesional</li>
+                            <li>Consulta los comentarios para mejorar tu práctica docente</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h4>Para Jefes Académicos:</h4>
+                        <ul>
+                            <li>Monitorea el progreso de evaluaciones en tu departamento</li>
+                            <li>Genera reportes para identificar tendencias</li>
+                            <li>Acompaña a los docentes en su desarrollo profesional</li>
+                            <li>Exporta datos para análisis detallados</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h4>Credenciales de Prueba:</h4>
+                        <ul>
+                            <li><strong>Alumno:</strong> alumno@example.com / alumno123</li>
+                            <li><strong>Docente:</strong> docente@example.com / docente123</li>
+                            <li><strong>Jefe Académico:</strong> jefe@example.com / jefe123</li>
+                            <li><strong>Super Admin:</strong> admin@example.com / admin123</li>
+                            <li><strong>Comité:</strong> comite@example.com / comite123</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="help-contact">
+                    <h3 class="help-title">Contacto y Soporte</h3>
+                    <p>Si tienes problemas técnicos o preguntas, contacta a:</p>
+                    <p><strong>Email:</strong> soporte@universidad.edu</p>
+                    <p><strong>Teléfono:</strong> +1 (555) 123-4567</p>
+                </div>
+                <button class="btn btn-primary" onclick="goBack()">Volver al Panel</button>
+                <button class="btn btn-link" onclick="navigateTo('welcome-screen')">Ir al Inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
