@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -127,9 +128,9 @@
                     <div class="role-icons">
                         <span class="role-icon" title="Alumno"><i class="fas fa-user-graduate"></i></span>
                         <span class="role-icon" title="Docente"><i class="fas fa-chalkboard-teacher"></i></span>
-                        <span class="role-icon" title="Jefe Académico"><i class="fas fa-user-tie"></i></span>
-                        <span class="role-icon" title="Administrador"><i class="fas fa-user-shield"></i></span>
-                        <span class="role-icon" title="Comité"><i class="fas fa-users"></i></span>
+                        <span class="role-icon" title="Jefe de Área"><i class="fas fa-user-tie"></i></span>
+                        <span class="role-icon" title="Administrador Institucional"><i class="fas fa-user-shield"></i></span>
+                        <span class="role-icon" title="Par Académico"><i class="fas fa-users"></i></span>
                     </div>
                 </div>
             </div>
@@ -183,9 +184,9 @@
                                 <option value="">Seleccione su rol</option>
                                 <option value="alumno">🎓 Alumno</option>
                                 <option value="docente">📚 Docente</option>
-                                <option value="jefe">👔 Jefe Académico</option>
-                                <option value="admin">🛡️ Super Administrador</option>
-                                <option value="comite">👥 Comité</option>
+                                <option value="jefe-area">👔 Jefe de Área</option>
+                                <option value="administrador">🛡️ Administrador Institucional</option>
+                                <option value="par-academico">👥 Par Académico</option>
                             </select>
                         </div>
                     </div>
@@ -296,16 +297,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Realizar Autoevaluación</button>
+                    <button class="btn btn-secondary">Descargar Reportes</button>
+                </div>
                 <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
             </div>
         </div>
     </div>
 
-    <!-- Jefe Académico Dashboard -->
-    <div id="dashboard-jefe" class="screen">
+    <!-- Jefe de Área Dashboard -->
+    <div id="dashboard-jefe-area" class="screen">
         <div class="container">
             <div class="dashboard-header">
-                <h2>Panel de Jefe Académico</h2>
+                <h2>Panel de Jefe de Área</h2>
                 <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
             </div>
             <div class="dashboard-content">
@@ -321,6 +326,7 @@
                                 <th>Evaluaciones</th>
                                 <th>Promedio</th>
                                 <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -329,18 +335,30 @@
                                 <td>35/40</td>
                                 <td><span class="badge badge-completed">4.5</span></td>
                                 <td><span class="badge badge-completed">Excelente</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Validar</button>
+                                    <button class="btn btn-small btn-outline">Revisar</button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Dra. María García</td>
                                 <td>38/40</td>
                                 <td><span class="badge badge-completed">4.7</span></td>
                                 <td><span class="badge badge-completed">Excelente</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Validar</button>
+                                    <button class="btn btn-small btn-outline">Revisar</button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Ing. Carlos López</td>
                                 <td>28/40</td>
                                 <td><span class="badge badge-pending">3.8</span></td>
                                 <td><span class="badge badge-pending">Bueno</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-warning">Devolver</button>
+                                    <button class="btn btn-small btn-outline">Revisar</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -348,17 +366,18 @@
                 <div class="action-buttons">
                     <button class="btn btn-primary">Generar Reporte</button>
                     <button class="btn btn-secondary">Exportar Datos</button>
+                    <button class="btn btn-outline">Evaluar Docentes</button>
                 </div>
                 <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
             </div>
         </div>
     </div>
 
-    <!-- Super Admin Dashboard -->
-    <div id="dashboard-admin" class="screen">
+    <!-- Administrador Institucional Dashboard -->
+    <div id="dashboard-administrador" class="screen">
         <div class="container">
             <div class="dashboard-header">
-                <h2>Panel de Super Administrador</h2>
+                <h2>Panel de Administrador Institucional</h2>
                 <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
             </div>
             <div class="dashboard-content">
@@ -410,64 +429,104 @@
                     <button class="btn btn-primary">Gestionar Usuarios</button>
                     <button class="btn btn-primary">Configurar Sistema</button>
                     <button class="btn btn-secondary">Reportes Globales</button>
+                    <button class="btn btn-outline">Activar Evaluaciones</button>
                 </div>
                 <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
             </div>
         </div>
     </div>
 
-    <!-- Comité Dashboard -->
-    <div id="dashboard-comite" class="screen">
+    <!-- Par Académico Dashboard -->
+    <div id="dashboard-par-academico" class="screen">
         <div class="container">
             <div class="dashboard-header">
-                <h2>Panel de Comité</h2>
-                <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+                <h2>Panel de Par Académico</h2>
+                <div class="user-info">
+                    <span>Evaluador Especializado</span>
+                    <button class="btn btn-secondary" onclick="logout()">Cerrar Sesión</button>
+                </div>
             </div>
+            
             <div class="dashboard-content">
                 <div class="info-card">
-                    <h3>Revisión de Reportes de Evaluación</h3>
-                    <p>Analiza y aprueba los reportes de evaluación docente</p>
+                    <h3>Evaluaciones de Pares Pendientes</h3>
+                    <p>Evalúa a docentes homólogos con criterios pedagógicos y disciplinares</p>
                 </div>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>Periodo</th>
+                                <th>Docente</th>
                                 <th>Departamento</th>
-                                <th>Docentes</th>
+                                <th>Área Especializada</th>
                                 <th>Estado</th>
-                                <th>Acción</th>
+                                <th>Fecha Límite</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>2024-1</td>
+                                <td>Dr. Juan Pérez</td>
                                 <td>Ingeniería</td>
-                                <td>45</td>
-                                <td><span class="badge badge-pending">Pendiente Revisión</span></td>
-                                <td><button class="btn btn-small btn-primary">Revisar</button></td>
+                                <td>Matemáticas Aplicadas</td>
+                                <td><span class="badge badge-pending">Pendiente</span></td>
+                                <td>15/12/2024</td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Evaluar</button>
+                                    <button class="btn btn-small btn-outline">Ver Perfil</button>
+                                </td>
                             </tr>
                             <tr>
-                                <td>2024-1</td>
+                                <td>Dra. María García</td>
                                 <td>Ciencias</td>
-                                <td>32</td>
-                                <td><span class="badge badge-completed">Aprobado</span></td>
-                                <td><button class="btn btn-small btn-secondary">Ver Reporte</button></td>
+                                <td>Física Teórica</td>
+                                <td><span class="badge badge-pending">Pendiente</span></td>
+                                <td>20/12/2024</td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Evaluar</button>
+                                    <button class="btn btn-small btn-outline">Ver Perfil</button>
+                                </td>
                             </tr>
                             <tr>
-                                <td>2023-2</td>
-                                <td>Humanidades</td>
-                                <td>28</td>
-                                <td><span class="badge badge-completed">Aprobado</span></td>
-                                <td><button class="btn btn-small btn-secondary">Ver Reporte</button></td>
+                                <td>Ing. Carlos López</td>
+                                <td>Ingeniería</td>
+                                <td>Sistemas Computacionales</td>
+                                <td><span class="badge badge-completed">Completada</span></td>
+                                <td>10/12/2024</td>
+                                <td>
+                                    <button class="btn btn-small btn-secondary" disabled>Evaluado</button>
+                                    <button class="btn btn-small btn-outline">Ver Evaluación</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="action-buttons">
-                    <button class="btn btn-primary">Generar Actas</button>
-                    <button class="btn btn-secondary">Historial de Revisiones</button>
+
+                <div class="info-card">
+                    <h3>Instrumentos de Evaluación para Pares</h3>
+                    <p>Criterios especializados para evaluación entre colegas</p>
+                    <div class="evaluation-criteria">
+                        <div class="criterion">
+                            <h4>Dominio Disciplinar</h4>
+                            <p>Conocimiento actualizado y profundo del área de especialización</p>
+                        </div>
+                        <div class="criterion">
+                            <h4>Metodología Pedagógica</h4>
+                            <p>Adecuación de estrategias de enseñanza al área disciplinar</p>
+                        </div>
+                        <div class="criterion">
+                            <h4>Contribución Académica</h4>
+                            <p>Participación en investigación, publicaciones y desarrollo disciplinar</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Ver Historial de Evaluaciones</button>
+                    <button class="btn btn-secondary">Descargar Formatos</button>
+                    <button class="btn btn-outline">Guía de Evaluación por Pares</button>
+                </div>
+
                 <button class="btn btn-link" onclick="navigateTo('help-screen')">¿Necesitas ayuda?</button>
             </div>
         </div>
@@ -493,18 +552,39 @@
                         <h4>Para Docentes:</h4>
                         <ul>
                             <li>Accede a tu panel para ver el resumen de evaluaciones</li>
+                            <li>Realiza tu autoevaluación periódicamente</li>
                             <li>Revisa tus estadísticas y áreas de mejora</li>
                             <li>Las evaluaciones son un recurso para el desarrollo profesional</li>
                             <li>Consulta los comentarios para mejorar tu práctica docente</li>
                         </ul>
                     </div>
                     <div class="help-item">
-                        <h4>Para Jefes Académicos:</h4>
+                        <h4>Para Jefes de Área:</h4>
                         <ul>
                             <li>Monitorea el progreso de evaluaciones en tu departamento</li>
+                            <li>Valida o devuelve evaluaciones para revisión interna</li>
+                            <li>Evalúa a docentes como Jefe Inmediato</li>
                             <li>Genera reportes para identificar tendencias</li>
                             <li>Acompaña a los docentes en su desarrollo profesional</li>
-                            <li>Exporta datos para análisis detallados</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h4>Para Administradores Institucionales:</h4>
+                        <ul>
+                            <li>Gestiona usuarios y roles del sistema</li>
+                            <li>Configura ciclos de evaluación y parámetros institucionales</li>
+                            <li>Activa evaluaciones para diferentes grupos de usuarios</li>
+                            <li>Supervisa reportes institucionales completos</li>
+                            <li>Administra plantillas de evaluación basadas en métricas validadas</li>
+                        </ul>
+                    </div>
+                    <div class="help-item">
+                        <h4>Para Pares Académicos:</h4>
+                        <ul>
+                            <li>Evalúa a docentes homólogos con criterios pedagógicos y disciplinares</li>
+                            <li>Aporta evaluación cualitativa especializada</li>
+                            <li>Utiliza los instrumentos especializados para evaluación entre colegas</li>
+                            <li>Tu evaluación añade perspectiva técnica y académica especializada</li>
                         </ul>
                     </div>
                     <div class="help-item">
@@ -512,9 +592,9 @@
                         <ul>
                             <li><strong>Alumno:</strong> alumno@example.com / alumno123</li>
                             <li><strong>Docente:</strong> docente@example.com / docente123</li>
-                            <li><strong>Jefe Académico:</strong> jefe@example.com / jefe123</li>
-                            <li><strong>Super Admin:</strong> admin@example.com / admin123</li>
-                            <li><strong>Comité:</strong> comite@example.com / comite123</li>
+                            <li><strong>Jefe de Área:</strong> jefe-area@example.com / jefe123</li>
+                            <li><strong>Administrador Institucional:</strong> admin@example.com / admin123</li>
+                            <li><strong>Par Académico:</strong> par-academico@example.com / par123</li>
                         </ul>
                     </div>
                 </div>
@@ -533,4 +613,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
