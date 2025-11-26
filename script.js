@@ -1,10 +1,11 @@
+
 // User credentials database
 const users = [
     { email: 'alumno@example.com', password: 'alumno123', role: 'alumno' },
     { email: 'docente@example.com', password: 'docente123', role: 'docente' },
-    { email: 'jefe@example.com', password: 'jefe123', role: 'jefe' },
-    { email: 'admin@example.com', password: 'admin123', role: 'admin' },
-    { email: 'comite@example.com', password: 'comite123', role: 'comite' }
+    { email: 'jefe-area@example.com', password: 'jefe123', role: 'jefe-area' },
+    { email: 'admin@example.com', password: 'admin123', role: 'administrador' },
+    { email: 'par-academico@example.com', password: 'par123', role: 'par-academico' }
 ];
 
 // Store current user
@@ -115,9 +116,9 @@ function getRoleName(role) {
     const roleNames = {
         'alumno': 'Alumno',
         'docente': 'Docente',
-        'jefe': 'Jefe Académico',
-        'admin': 'Super Administrador',
-        'comite': 'Comité'
+        'jefe-area': 'Jefe de Área',
+        'administrador': 'Administrador Institucional',
+        'par-academico': 'Par Académico'
     };
     return roleNames[role] || role;
 }
@@ -153,4 +154,3 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
-
