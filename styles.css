@@ -1,3 +1,4 @@
+
 /* ===================================
    MODERN INSTITUTIONAL DESIGN SYSTEM
    360° Teacher Evaluation Platform
@@ -607,6 +608,18 @@ body {
     font-size: 0.9rem;
 }
 
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #e0a800, #ffc107);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
 .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -890,6 +903,29 @@ tbody tr:hover {
     flex-wrap: wrap;
 }
 
+/* === EVALUATION CRITERIA === */
+.evaluation-criteria {
+    margin-top: 20px;
+}
+
+.criterion {
+    background: var(--bg-gray);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-green);
+}
+
+.criterion h4 {
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+.criterion p {
+    color: var(--text-gray);
+    margin: 0;
+}
+
 /* === HELP SCREEN === */
 .help-container {
     max-width: 900px;
@@ -1023,4 +1059,3 @@ tbody tr:hover {
         font-size: 2.5rem;
     }
 }
-
